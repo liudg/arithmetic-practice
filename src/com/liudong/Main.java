@@ -3,7 +3,9 @@ package com.liudong;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        System.out.println("hello word");
+        testSinglyLinkedList();
     }
+
+    //单链表测试
+    public static void testSinglyLinkedList(){}
 }
