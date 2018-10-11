@@ -10,6 +10,7 @@ public class Main {
         linkedListReverse();
         linkedListCheckCircle();
         linkedListMerge();
+        deleteNode();
     }
 
     //单链表测试
@@ -83,7 +84,7 @@ public class Main {
         slIns.insertAfter(node5, node6);
         System.out.print("原始链表：");
         slIns.printAll();
-        node6.next = node3; //形成环
+//        node6.next = node3; //形成环
         System.out.println("是否有中环节点：" + LinkedListAlgo.checkCircle(head));
         System.out.println("==========链表中环end==========\n");
     }
@@ -117,5 +118,32 @@ public class Main {
         System.out.print("合并结果：");
         slIns3.printAll();
         System.out.println("==========链表合并end==========\n");
+    }
+
+    //删除链表倒数第n个节点
+    private static void deleteNode() {
+        System.out.println("==========删除链表节点start==========");
+        SinglyLinkedList.Node head = SinglyLinkedList.createNode(1);
+        SinglyLinkedList.Node node2 = SinglyLinkedList.createNode(2);
+        SinglyLinkedList.Node node3 = SinglyLinkedList.createNode(3);
+        SinglyLinkedList.Node node4 = SinglyLinkedList.createNode(4);
+        SinglyLinkedList.Node node5 = SinglyLinkedList.createNode(5);
+        SinglyLinkedList.Node node6 = SinglyLinkedList.createNode(6);
+
+        SinglyLinkedList slIns = new SinglyLinkedList();
+        slIns.insertToHead(head);
+        slIns.insertAfter(head, node2);
+        slIns.insertAfter(node2, node3);
+        slIns.insertAfter(node3, node4);
+        slIns.insertAfter(node4, node5);
+        slIns.insertAfter(node5, node6);
+        System.out.print("原始链表：");
+        slIns.printAll();
+        SinglyLinkedList.Node newNode = LinkedListAlgo.deleteNode(head, 3);
+        SinglyLinkedList slIns1 = new SinglyLinkedList();
+        slIns1.insertToHead(newNode);
+        System.out.print("删除后：");
+        slIns1.printAll();
+        System.out.println("==========删除链表节点end==========\n");
     }
 }

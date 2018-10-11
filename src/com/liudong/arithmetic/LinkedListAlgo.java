@@ -63,7 +63,7 @@ public class LinkedListAlgo {
         }
         SinglyLinkedList.Node r = head;
         while (p != null && q != null) {
-            if(p.getData() < q.getData()) {
+            if (p.getData() < q.getData()) {
                 r.next = p;
                 p = p.next;
             } else {
@@ -73,10 +73,34 @@ public class LinkedListAlgo {
             r = r.next;
         }
 
-        if(p != null) {
+        if (p != null) {
             r.next = p;
         } else {
             r.next = q;
+        }
+        return head;
+    }
+
+    // 删除链表倒数第n个节点
+    public static SinglyLinkedList.Node deleteNode(SinglyLinkedList.Node head, int n) {
+        SinglyLinkedList.Node fast = head;
+        int i = 1;
+        while (fast != null && i < n) {
+            fast = fast.next;
+            i++;
+        }
+        if (fast == null) return head;
+        SinglyLinkedList.Node slow = head;
+        SinglyLinkedList.Node prev = null;
+        while (fast.next != null) {
+            fast = fast.next;
+            prev = slow;
+            slow = slow.next;
+        }
+        if (prev == null) {
+            head = head.next;
+        } else {
+            prev.next = prev.next.next;
         }
         return head;
     }
