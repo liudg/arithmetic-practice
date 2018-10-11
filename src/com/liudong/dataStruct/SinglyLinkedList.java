@@ -118,7 +118,7 @@ public class SinglyLinkedList {
 
     public static class Node {
         private int data;
-        private Node next;
+        public Node next;
 
         private Node(int data, Node next) {
             this.data = data;
