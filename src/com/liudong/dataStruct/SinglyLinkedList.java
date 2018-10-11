@@ -28,26 +28,85 @@ public class SinglyLinkedList {
         return p;
     }
 
-    public void insertToHead(int value) {}
+    public void insertToHead(int value) {
+        Node newNode = new Node(value, null);
+        insertToHead(newNode);
+    }
 
-    public void insertToHead(Node newNode) {}
+    public void insertToHead(Node newNode) {
+        if (head == null) {
+            head = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
+    }
 
-    public void insertAfter(Node p, int value) {}
+    public void insertAfter(Node p, int value) {
+        Node newNode = new Node(value, null);
+        insertAfter(p, newNode);
+    }
 
-    public void insertAfter(Node p, Node newNode) {}
+    public void insertAfter(Node p, Node newNode) {
+        if (p == null) return;
+        newNode.next = p.next;
+        p.next = newNode;
+    }
 
-    public void insertBefore(Node p, int value) {}
+    public void insertBefore(Node p, int value) {
+        Node newNode = new Node(value, null);
+        insertBefore(p, newNode);
+    }
 
-    public void insertBefore(Node p, Node newNode) {}
+    public void insertBefore(Node p, Node newNode) {
+        if (p == null) return;
+        if (head == p) {
+            insertToHead(newNode);
+            return;
+        }
+        Node q = head;
+        while (q != null && q.next != p) {
+            q = q.next;
+        }
+        if (q == null) return;
+        newNode.next = p;
+        q.next = newNode;
+    }
 
-    public void deleteByNode(Node p) {}
+    public void deleteByNode(Node p) {
+        if (p == null || head == null) return;
+        if (p == head) {
+            head = head.next;
+            return;
+        }
+        Node q = head;
+        while (q != null && q.next != p) {
+            q = q.next;
+        }
+        if (q == null) return;
+        q.next = q.next.next;
+    }
 
-    public void deleteByValue(int value) {}
+    public void deleteByValue(int value) {
+        if (head == null) return;
+        Node q = head;
+        Node p = null;
+        while (q != null && q.data != value) {
+            p = q;
+            q = q.next;
+        }
+        if (q == null) return;
+        if (p == null) {
+            head = head.next;
+        } else {
+            p.next = p.next.next;
+        }
+    }
 
     public void printAll() {
         Node p = head;
         while (p != null) {
-            System.out.println(p.data + " ");
+            System.out.print(p.data + " ");
             p = p.next;
         }
         System.out.println();
@@ -61,7 +120,7 @@ public class SinglyLinkedList {
         private int data;
         private Node next;
 
-        public Node(int data, Node next){
+        private Node(int data, Node next) {
             this.data = data;
             this.next = next;
         }
