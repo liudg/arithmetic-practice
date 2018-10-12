@@ -11,6 +11,7 @@ public class Main {
         linkedListCheckCircle();
         linkedListMerge();
         deleteNode();
+        centerNode();
     }
 
     //单链表测试
@@ -145,5 +146,29 @@ public class Main {
         System.out.print("删除后：");
         slIns1.printAll();
         System.out.println("==========删除链表节点end==========\n");
+    }
+
+    //链表中间节点
+    private static void centerNode() {
+        System.out.println("==========链表中间节点start==========");
+        SinglyLinkedList.Node head = SinglyLinkedList.createNode(1);
+        SinglyLinkedList.Node node2 = SinglyLinkedList.createNode(2);
+        SinglyLinkedList.Node node3 = SinglyLinkedList.createNode(3);
+        SinglyLinkedList.Node node4 = SinglyLinkedList.createNode(4);
+        SinglyLinkedList.Node node5 = SinglyLinkedList.createNode(5);
+        SinglyLinkedList.Node node6 = SinglyLinkedList.createNode(6);
+
+        SinglyLinkedList slIns = new SinglyLinkedList();
+        slIns.insertToHead(head);
+        slIns.insertAfter(head, node2);
+        slIns.insertAfter(node2, node3);
+        slIns.insertAfter(node3, node4);
+        slIns.insertAfter(node4, node5);
+        slIns.insertAfter(node5, node6);
+        System.out.print("原始链表：");
+        slIns.printAll();
+        SinglyLinkedList.Node newNode = LinkedListAlgo.centerNode(head);
+        System.out.println("中间节点：" + newNode.getData());
+        System.out.println("==========链表中间节点end==========\n");
     }
 }

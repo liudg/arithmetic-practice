@@ -104,4 +104,19 @@ public class LinkedListAlgo {
         }
         return head;
     }
+
+    //求链表的中间节点
+    public static SinglyLinkedList.Node centerNode(SinglyLinkedList.Node head) {
+        if (head == null) return null;
+
+        SinglyLinkedList.Node fast = head;
+        SinglyLinkedList.Node slow = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        return slow;
+    }
 }
