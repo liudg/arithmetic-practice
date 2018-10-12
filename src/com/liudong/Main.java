@@ -2,16 +2,22 @@ package com.liudong;
 
 import com.liudong.arithmetic.LinkedListAlgo;
 import com.liudong.dataStruct.SinglyLinkedList;
+import com.liudong.dataStruct.StackBasedOnArray;
+import com.liudong.dataStruct.StackBasedOnLinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
+        //链表操作
         testSinglyLinkedList();
         linkedListReverse();
         linkedListCheckCircle();
         linkedListMerge();
         deleteNode();
         centerNode();
+        //栈操作
+        testArrayStack();
+        testLinkedStack();
     }
 
     //单链表测试
@@ -170,5 +176,46 @@ public class Main {
         SinglyLinkedList.Node newNode = LinkedListAlgo.centerNode(head);
         System.out.println("中间节点：" + newNode.getData());
         System.out.println("==========链表中间节点end==========\n");
+    }
+
+    //测试数组栈
+    private static void testArrayStack() {
+        System.out.println("==========数组栈start==========");
+        StackBasedOnArray stack = new StackBasedOnArray(6);
+        stack.push("a");
+        stack.push("b");
+        stack.push("c");
+        stack.push("d");
+        stack.push("e");
+        stack.push("f");
+        System.out.println("栈数据：['a', 'b', 'c', 'd', 'e', 'f']");
+        stack.pop();
+        System.out.print("出栈：");
+        stack.printAll();
+        stack.push("R");
+        System.out.print("入栈R：");
+        stack.printAll();
+        System.out.println("==========数组栈end==========\n");
+    }
+
+    //测试链式栈
+    private static void testLinkedStack() {
+        System.out.println("==========链式栈start==========");
+        StackBasedOnLinkedList stack = new StackBasedOnLinkedList();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        System.out.print("栈数据：");
+        stack.printAll();
+
+        stack.pop();
+        System.out.print("出栈：");
+        stack.printAll();
+        stack.push(6);
+        System.out.print("入栈6：");
+        stack.printAll();
+        System.out.println("==========链式栈end==========\n");
     }
 }
