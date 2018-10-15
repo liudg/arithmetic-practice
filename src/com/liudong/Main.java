@@ -1,6 +1,7 @@
 package com.liudong;
 
 import com.liudong.arithmetic.LinkedListAlgo;
+import com.liudong.dataStruct.CircularQueue;
 import com.liudong.dataStruct.SinglyLinkedList;
 import com.liudong.dataStruct.StackBasedOnArray;
 import com.liudong.dataStruct.StackBasedOnLinkedList;
@@ -18,6 +19,8 @@ public class Main {
         //栈操作
         testArrayStack();
         testLinkedStack();
+        //队列操作
+        circularQueue();
     }
 
     //单链表测试
@@ -217,5 +220,40 @@ public class Main {
         System.out.print("入栈6：");
         stack.printAll();
         System.out.println("==========链式栈end==========\n");
+    }
+
+    //循环队列测试
+    private static void circularQueue() {
+        System.out.println("==========循环队列start==========");
+        CircularQueue queue = new CircularQueue(6);
+        queue.enqueue("a");
+        queue.enqueue("b");
+        queue.enqueue("c");
+        queue.enqueue("d");
+        queue.enqueue("e");
+        queue.enqueue("f");
+        System.out.print("队列数据：");
+        queue.printAll();
+        System.out.println("队列满时入队结果：" + queue.enqueue("1"));
+        System.out.print("出队3次：");
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.printAll();
+        System.out.print("入队3次：");
+        queue.enqueue("2");
+        queue.enqueue("3");
+        queue.enqueue("4");
+        queue.printAll();
+        System.out.print("出队4次：");
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+        queue.printAll();
+        System.out.print("入队1次：");
+        queue.enqueue("5");
+        queue.printAll();
+        System.out.println("==========循环队列end==========\n");
     }
 }
