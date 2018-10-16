@@ -1,6 +1,7 @@
 package com.liudong;
 
 import com.liudong.arithmetic.LinkedListAlgo;
+import com.liudong.arithmetic.Sorts;
 import com.liudong.dataStruct.CircularQueue;
 import com.liudong.dataStruct.SinglyLinkedList;
 import com.liudong.dataStruct.StackBasedOnArray;
@@ -21,6 +22,8 @@ public class Main {
         testLinkedStack();
         //队列操作
         circularQueue();
+        //排序
+        sorts();
     }
 
     //单链表测试
@@ -255,5 +258,19 @@ public class Main {
         queue.enqueue("5");
         queue.printAll();
         System.out.println("==========循环队列end==========\n");
+    }
+
+    //排序
+    private static void sorts() {
+        System.out.println("==========排序算法start==========");
+        int[] items = {5, 7, 1, 8, 2, 5};
+//        Sorts.bubbleSort(items, 6);
+//        Sorts.insertionSort(items, 6);
+        Sorts.selectionSort(items, 6);
+        for (int i = 0; i < items.length; i++) {
+            System.out.print(items[i] + " ");
+        }
+        System.out.println();
+        System.out.println("==========排序算法end==========\n");
     }
 }
