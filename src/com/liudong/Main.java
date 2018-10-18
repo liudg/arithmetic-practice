@@ -1,6 +1,8 @@
 package com.liudong;
 
 import com.liudong.arithmetic.LinkedListAlgo;
+import com.liudong.arithmetic.MergeSort;
+import com.liudong.arithmetic.QuickSort;
 import com.liudong.arithmetic.Sorts;
 import com.liudong.dataStruct.CircularQueue;
 import com.liudong.dataStruct.SinglyLinkedList;
@@ -266,9 +268,11 @@ public class Main {
         int[] items = {5, 7, 1, 8, 2, 5};
 //        Sorts.bubbleSort(items, 6);
 //        Sorts.insertionSort(items, 6);
-        Sorts.selectionSort(items, 6);
-        for (int i = 0; i < items.length; i++) {
-            System.out.print(items[i] + " ");
+//        Sorts.selectionSort(items, 6);
+//        MergeSort.mergeSort(items, 6);
+        QuickSort.quickSort(items, 6);
+        for (int item : items) {
+            System.out.print(item + " ");
         }
         System.out.println();
         System.out.println("==========排序算法end==========\n");

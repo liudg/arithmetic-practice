@@ -83,4 +83,10 @@ public class Sorts {
             a[minIndex] = tmp;
         }
     }
+
+    /**
+     * 插入排序优化版---希尔排序
+     */
+    public static void shellSort(int[] a, int n) {
+    }
 }
