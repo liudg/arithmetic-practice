@@ -1,9 +1,8 @@
 package com.liudong;
 
+import com.liudong.arithmetic.AlgoExample;
 import com.liudong.arithmetic.LinkedListAlgo;
-import com.liudong.arithmetic.MergeSort;
 import com.liudong.arithmetic.QuickSort;
-import com.liudong.arithmetic.Sorts;
 import com.liudong.dataStruct.CircularQueue;
 import com.liudong.dataStruct.SinglyLinkedList;
 import com.liudong.dataStruct.StackBasedOnArray;
@@ -26,6 +25,8 @@ public class Main {
         circularQueue();
         //排序
         sorts();
+        //算法例子
+        findRankKEle();
     }
 
     //单链表测试
@@ -276,5 +277,21 @@ public class Main {
         }
         System.out.println();
         System.out.println("==========排序算法end==========\n");
+    }
+
+    //O(n)时间复杂度内求无序数组中第K大元素
+    private static void findRankKEle() {
+        System.out.println("==========算法例子start==========");
+        int[] a = {4, 2, 5, 12, 3};
+        System.out.print("原数组：");
+        for (int item : a) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+        int value = AlgoExample.findRankKEle(a, 3);
+        System.out.println("数组第3大元素是：" + value);
+        int value1 = AlgoExample.findRankKEle(a, 1);
+        System.out.println("数组第1大元素是：" + value1);
+        System.out.println("==========算法例子end==========\n");
     }
 }
