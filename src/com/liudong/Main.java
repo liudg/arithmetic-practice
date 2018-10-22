@@ -1,6 +1,7 @@
 package com.liudong;
 
 import com.liudong.arithmetic.AlgoExample;
+import com.liudong.arithmetic.CountingSort;
 import com.liudong.arithmetic.LinkedListAlgo;
 import com.liudong.arithmetic.QuickSort;
 import com.liudong.dataStruct.CircularQueue;
@@ -27,6 +28,8 @@ public class Main {
         sorts();
         //算法例子
         findRankKEle();
+        //计数排序
+        countingSort();
     }
 
     //单链表测试
@@ -293,5 +296,23 @@ public class Main {
         int value1 = AlgoExample.findRankKEle(a, 1);
         System.out.println("数组第1大元素是：" + value1);
         System.out.println("==========算法例子end==========\n");
+    }
+
+    //计数排序
+    private static void countingSort() {
+        System.out.println("==========计数排序start==========");
+        int[] a = {2, 5, 3, 0, 2, 3, 0, 3};
+        System.out.print("原数组：");
+        for (int item : a) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+        CountingSort.countingSort(a, 8);
+        System.out.print("排序后：");
+        for (int item : a) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+        System.out.println("==========计数排序end==========\n");
     }
 }

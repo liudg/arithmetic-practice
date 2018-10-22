@@ -16,7 +16,7 @@ public class QuickSort {
     private static void quickSortInternally(int[] a, int p, int r) {
         //递归终止条件
         if (p >= r) return;
-        //计算分区点
+        //计算分区点（合理选择分区点能带来很大优化，理想情况是被分开的两个区间数据量差不多）
         int q = partition(a, p, r);
         quickSortInternally(a, p, q - 1);
         quickSortInternally(a, q + 1, r);
