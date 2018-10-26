@@ -1,7 +1,9 @@
 package com.liudong.arithmetic;
 
 /**
- * 记数排序
+ * 记数排序---稳定排序
+ * 时间复杂度：O(n)
+ * 用途：适合数据范围小的处理
  */
 
 public class CountingSort {

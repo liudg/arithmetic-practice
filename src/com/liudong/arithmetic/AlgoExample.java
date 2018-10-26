@@ -3,6 +3,7 @@ package com.liudong.arithmetic;
 /**
  * 算法题目
  * 1）O(n)时间复杂度内求无序数组中第K大元素
+ * 2）二分查找变形
  */
 
 public class AlgoExample {
@@ -37,5 +38,73 @@ public class AlgoExample {
         a[i] = a[r];
         a[r] = tmp;
         return i;
+    }
+
+    //查找第一个值等于给定值的元素
+    public static int findFirstEqValue(int[] a, int value) {
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 2); //不用(low + high) / 2，是为了避免low + high值溢出
+            if (a[mid] > value) {
+                high = mid - 1;
+            } else if (a[mid] < value) {
+                low = mid + 1;
+            } else {
+                if (mid == 0 || (a[mid - 1] != value)) return mid;
+                else high = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    //查找最后一个值等于给定值的元素
+    public static int findLastEqValue(int[] a, int value) {
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 2); //不用(low + high) / 2，是为了避免low + high值溢出
+            if (a[mid] > value) {
+                high = mid - 1;
+            } else if (a[mid] < value) {
+                low = mid + 1;
+            } else {
+                if (mid == a.length - 1 || (a[mid + 1] != value)) return mid;
+                else low = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    //查找第一个大于等于给定值的元素
+    public static int findFirstGtValue(int[] a, int value) {
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 1);
+            if (a[mid] >= value) {
+                if ((mid == 0) || (a[mid - 1] < value)) return mid;
+                else high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    //查找最后一个小于等于给定值的元素
+    public static int findLastLtValue(int[] a, int value) {
+        int low = 0;
+        int high = a.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 1);
+            if (a[mid] <= value) {
+                if ((mid == a.length - 1) || (a[mid + 1] > value)) return mid;
+                else low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;
     }
 }

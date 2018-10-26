@@ -30,6 +30,8 @@ public class Main {
         findRankKEle();
         //计数排序
         countingSort();
+        //二分查找例子
+        findFirstEqValue();
     }
 
     //单链表测试
@@ -314,5 +316,21 @@ public class Main {
         }
         System.out.println();
         System.out.println("==========计数排序end==========\n");
+    }
+
+    //二分查找例子
+    private static void findFirstEqValue() {
+        int[] a = {1, 3, 4, 5, 6, 8, 8, 8, 11, 18};
+        System.out.print("原数组：");
+        for (int item : a) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+        int min = AlgoExample.findFirstEqValue(a, 8);
+        int max = AlgoExample.findLastEqValue(a, 8);
+        int first = AlgoExample.findFirstGtValue(a, 10);
+        int last = AlgoExample.findLastLtValue(a, 8);
+        System.out.println("查找的值：8，" + "最小位置：" + min + "，最大位置：" + max);
+        System.out.println("第一个大于10的值的位置：" + first + "，最后一个小于8的值：" + last);
     }
 }
